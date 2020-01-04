@@ -18,8 +18,8 @@ public class Rook implements Piece {
     }
 
     @Override
-    public boolean canMove(Position start, Position end) {
-        return checkXOrYMaintained(start, end);
+    public boolean canMove(Move move) {
+        return move.isVertical() || move.isHorizontal();
     }
 
     @Override
@@ -33,9 +33,5 @@ public class Rook implements Piece {
     @Override
     public int hashCode() {
         return Objects.hash(color);
-    }
-
-    private boolean checkXOrYMaintained(Position start, Position end){
-        return (start.getX()==end.getX()) || (start.getY() == end.getY());
     }
 }

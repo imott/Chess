@@ -19,7 +19,7 @@ public class Rook implements Piece {
 
     @Override
     public boolean canMove(Position start, Position end) {
-        return true;
+        return checkXOrYMaintained(start, end);
     }
 
     @Override
@@ -33,5 +33,9 @@ public class Rook implements Piece {
     @Override
     public int hashCode() {
         return Objects.hash(color);
+    }
+
+    private boolean checkXOrYMaintained(Position start, Position end){
+        return (start.getX()==end.getX()) || (start.getY() == end.getY());
     }
 }
